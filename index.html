@@ -4,7 +4,9 @@
     <title>Optimal wavelets</title>
     <style>
         input {
-            width: 100%;
+			display: block;
+            width: 40%;
+			margin: auto;
         }
         img {
             height: 90vh;
@@ -18,8 +20,7 @@
 
     <img id="time" src="video/1time.png">
     <img id="freq" src="video/1freq.png">
-
-    <input type="range" min="1" max="700" step="1" value="1" oninput="updateImages(this.value)">
+	<input type="range" min="1" max="700" step="1" value="1" oninput="updateImages(this.value)">
 
     <script>
         function preloadImages() {
