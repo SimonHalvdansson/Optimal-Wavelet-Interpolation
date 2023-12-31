@@ -3,24 +3,59 @@
 <head>
     <title>Optimal wavelets</title>
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+			font-family: monospace;
+        }
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+        }
+        .image-box {
+            text-align: center;
+        }
+        img {
+            height: 70vh;
+            max-width: 100%;
+        }
+        .slider-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50%;
+            margin: 20px 0;
+        }
+        .slider-label {
+            margin: 0 10px;
+        }
         input {
-			display: block;
-            width: 40%;
-			margin: auto;
-        }
-        img {
-            height: 90vh;
-        }
-        img {
-            width: 49%;
+            width: 100%;
         }
     </style>
 </head>
 <body>
+    <div class="image-container">
+        <div class="image-box">
+            <h2>Time domain</h2>
+            <img id="time" src="video/1time.png">
+        </div>
 
-    <img id="time" src="video/1time.png">
-    <img id="freq" src="video/1freq.png">
-	<input type="range" min="1" max="700" step="1" value="1" oninput="updateImages(this.value)">
+        <div class="image-box">
+            <h2>Frequency domain</h2>
+            <img id="freq" src="video/1freq.png">
+        </div>
+    </div>
+
+    <div class="slider-container">
+        <span class="slider-label">Frequency localized</span>
+        <input type="range" min="1" max="700" step="1" value="1" oninput="updateImages(this.value)">
+        <span class="slider-label">Time localized</span>
+    </div>
 
     <script>
         function preloadImages() {
