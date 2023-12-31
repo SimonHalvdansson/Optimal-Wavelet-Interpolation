@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Optimal wavelets</title>
-
-<style>
-
-input {
-	width: 100%;
-}
-
-img {
-	height: 90vh;
-}
-img {
-	width: 49%;
-}
-
-
-
-</style>
-
+    <title>Optimal wavelets</title>
+    <style>
+        input {
+            width: 100%;
+        }
+        img {
+            height: 90vh;
+        }
+        img {
+            width: 49%;
+        }
+    </style>
 </head>
 <body>
 
-	<img id="time" src="video/1time.png">
-	<img id="freq" src="video/1freq.png">
+    <img id="time" src="video/1time.png">
+    <img id="freq" src="video/1freq.png">
 
-	<input type="range", min="1", max="700", step="1", value="1", oninput="document.querySelector('#time').src = ('video/' + this.value + 'time.png'); document.querySelector('#freq').src = ('video/' + this.value + 'freq.png');">
+    <input type="range" min="1" max="700" step="1" value="1" oninput="updateImages(this.value)">
+
+    <script>
+        function preloadImages() {
+            for (let i = 1; i <= 700; i++) {
+                const imgTime = new Image();
+                imgTime.src = 'video/' + i + 'time.png';
+
+                const imgFreq = new Image();
+                imgFreq.src = 'video/' + i + 'freq.png';
+            }
+        }
+
+        function updateImages(value) {
+            document.querySelector('#time').src = 'video/' + value + 'time.png';
+            document.querySelector('#freq').src = 'video/' + value + 'freq.png';
+        }
+
+        window.onload = preloadImages;
+    </script>
 
 </body>
 </html>
